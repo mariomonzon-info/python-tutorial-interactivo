@@ -1,0 +1,525 @@
+/* Reset y configuración base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+    animation: slideInDown 0.8s ease-out;
+}
+
+.header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.header p {
+    font-size: 1.3em;
+    opacity: 0.9;
+}
+
+/* Barra de progreso */
+.progress-container {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: slideInUp 0.8s ease-out;
+}
+
+.progress-bar {
+    background: #f0f0f0;
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.progress-fill {
+    background: linear-gradient(90deg, #4CAF50, #45a049);
+    height: 100%;
+    border-radius: 6px;
+    transition: width 0.5s ease;
+    width: 0%;
+}
+
+.progress-text {
+    text-align: center;
+    color: #666;
+    font-weight: 500;
+}
+
+/* Contenedor principal */
+.lesson-container {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: slideInUp 0.8s ease-out;
+}
+
+/* Navegación de lecciones */
+.lesson-nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.lesson-btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    background: #f0f0f0;
+    color: #666;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.lesson-btn:hover {
+    background: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+.lesson-btn.active {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102,126,234,0.4);
+}
+
+.lesson-btn.completed {
+    background: #4CAF50;
+    color: white;
+}
+
+.lesson-btn.completed::after {
+    content: "✓";
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #2E7D32;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Contenido de lecciones */
+.lesson-content {
+    display: none;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.lesson-content.active {
+    display: block;
+}
+
+.lesson-title {
+    color: #667eea;
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Tarjetas de conceptos */
+.concept-card {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 20px 0;
+    border-left: 5px solid #667eea;
+    position: relative;
+}
+
+.concept-card h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+
+/* Demostración de código */
+.code-demo {
+    background: #1a1a1a;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    color: #f0f0f0;
+    font-family: 'Consolas', 'Monaco', monospace;
+    position: relative;
+    overflow: hidden;
+}
+
+.code-demo::before {
+    content: "🐍 Python";
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: #333;
+    color: #4CAF50;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+}
+
+.code-line {
+    margin: 8px 0;
+    padding: 3px 0;
+    transition: all 0.3s ease;
+}
+
+.code-line:hover {
+    background: rgba(102,126,234,0.1);
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+/* Colores de sintaxis */
+.keyword { color: #569cd6; }
+.string { color: #ce9178; }
+.comment { color: #6a9955; }
+.number { color: #b5cea8; }
+.function { color: #dcdcaa; }
+.class-name { color: #4ec9b0; }
+
+/* Quiz interactivo */
+.interactive-quiz {
+    background: #e8f5e8;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 20px 0;
+    border-left: 5px solid #4CAF50;
+}
+
+.quiz-question {
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #2E7D32;
+}
+
+.quiz-options {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.quiz-option {
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+    position: relative;
+}
+
+.quiz-option:hover {
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.quiz-option.selected {
+    border-color: #667eea;
+    background: #f0f4ff;
+}
+
+.quiz-option.correct {
+    border-color: #4CAF50;
+    background: #e8f5e8;
+    animation: pulse 0.5s ease-in-out;
+}
+
+.quiz-option.incorrect {
+    border-color: #f44336;
+    background: #ffebee;
+    animation: shake 0.5s ease-in-out;
+}
+
+.quiz-feedback {
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: 500;
+    display: none;
+}
+
+.quiz-feedback.correct {
+    background: #e8f5e8;
+    color: #2E7D32;
+    border: 1px solid #4CAF50;
+}
+
+.quiz-feedback.incorrect {
+    background: #ffebee;
+    color: #c62828;
+    border: 1px solid #f44336;
+}
+
+/* Caja de prueba */
+.try-it-box {
+    background: #fff3e0;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 20px 0;
+    border-left: 5px solid #ff9800;
+}
+
+.try-it-box h3 {
+    color: #f57c00;
+    margin-bottom: 15px;
+}
+
+/* Editor simple */
+.simple-editor {
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 15px 0;
+    position: relative;
+}
+
+.editor-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #f0f0f0;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 14px;
+    resize: vertical;
+    min-height: 100px;
+    outline: none;
+    line-height: 1.5;
+}
+
+.editor-output {
+    background: #0d4377;
+    color: #87ceeb;
+    padding: 15px;
+    border-radius: 0 0 8px 8px;
+    min-height: 50px;
+    font-family: 'Consolas', 'Monaco', monospace;
+    white-space: pre-wrap;
+    border-top: 1px solid #333;
+}
+
+/* Botón ejecutar */
+.run-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin: 10px 0;
+}
+
+.run-btn:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76,175,80,0.4);
+}
+
+/* Navegación */
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.nav-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-btn:hover {
+    background: #5a6fd8;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102,126,234,0.4);
+}
+
+.nav-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Logros */
+.achievement {
+    background: #fff9c4;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    border-left: 5px solid #fbc02d;
+    display: none;
+    animation: bounceIn 0.8s ease-out;
+}
+
+.achievement.show {
+    display: block;
+}
+
+.achievement h3 {
+    color: #f57f17;
+    margin-bottom: 10px;
+}
+
+/* Mensaje motivacional */
+.motivational-message {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    margin: 20px 0;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+/* Caja de consejo */
+.hint-box {
+    background: #e3f2fd;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 15px 0;
+    border-left: 4px solid #2196f3;
+}
+
+.hint-box h4 {
+    color: #1976d2;
+    margin-bottom: 8px;
+}
+
+.hint-box p {
+    color: #424242;
+    margin: 0;
+}
+
+/* Animaciones */
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .header h1 {
+        font-size: 2.5em;
+    }
+    
+    .lesson-nav {
+        gap: 5px;
+    }
+    
+    .lesson-btn {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+    
+    .lesson-container {
+        padding: 20px;
+    }
+    
+    .navigation {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
