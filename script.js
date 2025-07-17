@@ -153,3 +153,5 @@ function runSimpleCode(editorNumber) {
     
     if (!code.trim()) {
         output.textContent = "Escribe algo de código para ejecutar 🐍";
+    }
+}
